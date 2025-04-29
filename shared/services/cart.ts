@@ -1,5 +1,6 @@
 import { axiosInstance } from './instance';
 import { CartDTO, CreateCartItemValues } from './dto/cart.dto';
+console.log('API URL:', process.env.NEXT_PUBLIC_API_URL);
 
 export const getCart = async (): Promise<CartDTO> => {
   return (await axiosInstance.get<CartDTO>('api/cart')).data;

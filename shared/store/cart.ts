@@ -3,6 +3,7 @@ import { Api } from '../services/api-client';
 import { getCartDetails } from '../lib';
 import { CartStateItem } from '../lib/get-cart-details';
 import { CreateCartItemValues } from '../services/dto/cart.dto';
+console.log('API URL:', process.env.NEXT_PUBLIC_API_URL);
 
 export interface CartState {
   loading: boolean;
