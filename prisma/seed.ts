@@ -58,19 +58,17 @@ async function up() {
 
   const pizza1 = await prisma.product.create({
     data: {
-      name: 'Пепперони фреш',
+      name: 'Пепероні фреш',
       imageUrl:
         'https://media.dodostatic.net/image/r:233x233/11EE7D61304FAF5A98A6958F2BB2D260.webp',
       categoryId: 1,
-      ingredients: {
-        connect: _ingredients.slice(0, 5),
-      },
+      descriptionUk: 'Моцарела, парсезан, дорблю, адигейський',
     },
   });
 
   const pizza2 = await prisma.product.create({
     data: {
-      name: 'Сырная',
+      name: 'Сирна',
       imageUrl:
         'https://media.dodostatic.net/image/r:233x233/11EE7D610CF7E265B7C72BE5AE757CA7.webp',
       categoryId: 1,
@@ -82,7 +80,7 @@ async function up() {
 
   const pizza3 = await prisma.product.create({
     data: {
-      name: 'Чоризо фреш',
+      name: 'Чорізо фреш',
       imageUrl:
         'https://media.dodostatic.net/image/r:584x584/11EE7D61706D472F9A5D71EB94149304.webp',
       categoryId: 1,
@@ -94,12 +92,12 @@ async function up() {
 
   await prisma.productItem.createMany({
     data: [
-      // Пицца "Пепперони фреш"
+      // Піца "Пепероні фреш"
       generateProductItem({ productId: pizza1.id, pizzaType: 1, size: 20 }),
       generateProductItem({ productId: pizza1.id, pizzaType: 2, size: 30 }),
       generateProductItem({ productId: pizza1.id, pizzaType: 2, size: 40 }),
 
-      // Пицца "Сырная"
+      // Піца "Сирна"
       generateProductItem({ productId: pizza2.id, pizzaType: 1, size: 20 }),
       generateProductItem({ productId: pizza2.id, pizzaType: 1, size: 30 }),
       generateProductItem({ productId: pizza2.id, pizzaType: 1, size: 40 }),
@@ -107,12 +105,12 @@ async function up() {
       generateProductItem({ productId: pizza2.id, pizzaType: 2, size: 30 }),
       generateProductItem({ productId: pizza2.id, pizzaType: 2, size: 40 }),
 
-      // Пицца "Чоризо фреш"
+      // Піца "Чорізо фреш"
       generateProductItem({ productId: pizza3.id, pizzaType: 1, size: 20 }),
       generateProductItem({ productId: pizza3.id, pizzaType: 2, size: 30 }),
       generateProductItem({ productId: pizza3.id, pizzaType: 2, size: 40 }),
 
-      // Остальные продукты
+      // Інші продукти
       generateProductItem({ productId: 1 }),
       generateProductItem({ productId: 2 }),
       generateProductItem({ productId: 3 }),
